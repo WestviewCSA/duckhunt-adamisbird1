@@ -16,4 +16,3 @@ public class Pink extends Character{
 	
 }
 
-

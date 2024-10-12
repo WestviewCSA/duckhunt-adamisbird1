@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
+
 public class Character {
 	private Image img;					
 	private AffineTransform tx;
@@ -20,20 +21,24 @@ public class Character {
 	
 	public Character(String fileName) {
 		img = getImage("/imgs/"+fileName); // load the image for Tree
+
 		tx = AffineTransform.getTranslateInstance(0, 0);
 		init(x, y); // initialize the location of the image
 					// use your variables
 	}
+
 	public void toggleHitBox() {
 		showHitBox = !showHitBox;
 	}
 	
 	public Character() {
 		img = getImage("/imgs/duck.gif"); // load the image for Tree
+
 		tx = AffineTransform.getTranslateInstance(0, 0);
 		init(x, y); // initialize the location of the image
 					// use your variables
 	}
+
 	public void setWidthHeight(int w, int h) {
 		this.width = w;
 		this.height = h;
@@ -42,15 +47,19 @@ public class Character {
 	public int getWidth() {
 		return width;
 	}
+
 	public void setWidth(int width) {
 		this.width = width;
 	}
+
 	public int getHeight() {
 		return height;
 	}
+
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
 	public void setScale(int xScale, int yScale) {
 		this.xScale = xScale;
 		this.yScale = yScale;
@@ -66,32 +75,41 @@ public class Character {
 	public int getVx() {
 		return vx;
 	}
+
 	public void setVx(int vx) {
 		this.vx = vx;
 	}
+
 	public int getVy() {
 		return vy;
 	}
+
 	public void setVy(int vy) {
 		this.vy = vy;
 	}
+
 	public int getX() {
 		return x;
 	}
+
 	public void setX(int x) {
 		this.x = x;
 	}
+
 	public int getY() {
 		return y;
 	}
+
 	public void setY(int y) {
 		this.y = y;
 	}
 	
+
 	public void changePicture(String newFileName) {
 		img = getImage(newFileName);
 		init(x, y);
 	}
+
 	public void paint(Graphics g) {
 		// these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;
@@ -101,7 +119,7 @@ public class Character {
 		g2.drawImage(img, tx, null);
 		
 		
-		if(showHitBox)
+		if(showHitBox) 
 		{
 			g.setColor(Color.green);
 			g2.setStroke(new BasicStroke(5));
@@ -109,10 +127,12 @@ public class Character {
 		}
 		
 	}
+
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
 		tx.scale(xScale, yScale);
 	}
+
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
@@ -123,5 +143,5 @@ public class Character {
 		}
 		return tempImage;
 	}
-}
 
+}
